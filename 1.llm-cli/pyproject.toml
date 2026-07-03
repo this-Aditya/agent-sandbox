@@ -1,0 +1,21 @@
+[project]
+name = "llm-cli"
+version = "0.1.0"
+description = "A tiny CLI that chats with an LLM via GitHub Models."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "openai>=2.44.0",
+]
+
+# This line is what creates the `llm` command:
+#   "llm"  = the command name you type
+#   "llm_cli:main" = "call the main() function inside the llm_cli.py module"
+[project.scripts]
+llm = "llm_cli:main"
+
+# A build backend is required so uv can package this project and install
+# the `llm` command onto your PATH. hatchling is the common default.
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

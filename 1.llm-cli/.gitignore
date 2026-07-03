@@ -1,0 +1,17 @@
+# --- Python virtual environment (regenerable from uv.lock, never commit) ---
+.venv/
+
+# --- Secrets: tokens, API keys, GITHUB_TOKEN, etc. NEVER commit these ---
+.env
+.env.*
+
+# --- Python bytecode cache (auto-generated when Python runs) ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# --- PyCharm / IntelliJ project settings (machine-specific) ---
+.idea/
+
+# --- macOS junk ---
+.DS_Store
