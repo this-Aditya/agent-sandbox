@@ -1,0 +1,18 @@
+# PyCharm / IntelliJ project files — machine-specific, never commit (applies to
+# every subfolder too, so no .idea anywhere in this repo gets tracked)
+.idea/
+
+# Python virtual environments (regenerable from uv.lock / requirements)
+.venv/
+
+# Python bytecode cache
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Secrets: tokens / API keys
+.env
+.env.*
+
+# macOS junk
+.DS_Store
