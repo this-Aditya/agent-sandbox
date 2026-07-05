@@ -139,7 +139,7 @@ def demo_optional() -> None:
 
     # A union is itself a printable object:
     print("\nthe annotation `int | None` is this object ->", int | None)
-    print("isinstance(None, int | None) ->", isinstance(None, int | None))
+    print("isinstance(None, int/str | None) ->", isinstance(None, str | None))
 
 
 # ---------------------------------------------------------------------------
