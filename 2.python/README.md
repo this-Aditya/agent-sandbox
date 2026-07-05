@@ -27,8 +27,8 @@ For each lesson `pNNNN`:
 |---|-------|------|-----|--------------|
 | 1 | Type hints | [`p0001_typing.py`](p0001_typing.py) | [`docs/p0001_typing.md`](docs/p0001_typing.md) | Types are **runtime data**, not compile-time walls — frameworks read them |
 | 2 | Pydantic | [`p0002_pydantic.py`](p0002_pydantic.py) | [`docs/p0002_pydantic.md`](docs/p0002_pydantic.md) | Type notes become **real rules**: LLM JSON → typed, validated objects |
-| 3 | Environment & packaging (`uv`, `.venv`, `pyproject.toml`) | _next_ | _next_ | Why virtual envs exist, and the `build.gradle` → `pyproject.toml` map |
-| 4 | `async` / `await` | _planned_ | _planned_ | One thread, an event loop, and why LangChain is async-first |
+| 3 | Environment & packaging (`uv`, `.venv`, `pyproject.toml`) | [`p0003_environment.py`](p0003_environment.py) | [`docs/p0003_environment.md`](docs/p0003_environment.md) | Why virtual envs exist (`.venv` = Gradle's classpath, made a folder) |
+| 4 | `async` / `await` | _next_ | _next_ | One thread, an event loop, and why LangChain is async-first |
 | 5 | Comprehensions, iterators, generators | _planned_ | _planned_ | Lazy sequences — the machinery behind LLM token streaming |
 | 6 | Decorators | _planned_ | _planned_ | Functions that wrap functions — how `@tool` and `@app.post` really work |
 
