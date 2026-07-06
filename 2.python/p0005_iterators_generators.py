@@ -219,7 +219,7 @@ def demo_comprehensions() -> None:
 # ===========================================================================
 def stream_tokens(sentence: str):
     for word in sentence.split():
-        time.sleep(0.12)                  # pretend each token takes time to generate
+        time.sleep(1)                  # pretend each token takes time to generate
         yield word
 
 
@@ -235,7 +235,7 @@ def demo_streaming_sync() -> None:
 
 async def astream_tokens(sentence: str):
     for word in sentence.split():
-        await asyncio.sleep(0.12)         # async wait between tokens
+        await asyncio.sleep(1)         # async wait between tokens
         yield word                        # ASYNC generator = `async def` + `yield`
 
 
