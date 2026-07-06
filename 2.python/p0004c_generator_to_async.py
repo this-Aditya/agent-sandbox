@@ -14,13 +14,13 @@ logic three ways, so you can see exactly what maps to what:
 
 First, clear up the words with a concrete picture:
 
-    async def brew_async():        <- a coroutine FUNCTION (the definition)
+    async def brew_async(): <- a coroutine FUNCTION (the definition)
         ...
-    c = brew_async()               <- calling it makes a COROUTINE OBJECT.
+    c = brew_async() <- calling it makes a COROUTINE OBJECT.
                                       THIS whole object is "a coroutine" = one
                                       unit of pausable work. Not a line, not the
                                       `await` — the WHOLE running instance.
-    task = asyncio.create_task(c)  <- the event loop wraps it in a TASK (its
+    task = asyncio.create_task(c) <- the event loop wraps it in a TASK (its
                                       bookkeeping handle) and schedules it.
 
     The loop holds many Tasks and runs them ONE AT A TIME, taking turns at each

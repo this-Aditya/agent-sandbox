@@ -31,8 +31,8 @@ For each lesson `pNNNN`:
 | 4 | `async` / `await` | [`p0004_async.py`](p0004_async.py) | [`docs/p0004_async.md`](docs/p0004_async.md) | One thread + an event loop; `gather` overlaps waits (3s → 1s), proven by timing |
 | 4b | async deep dive: overlap, delays, Java comparison | [`p0004b_async_deep.py`](p0004b_async_deep.py) | [`docs/p0004b_async_deep.md`](docs/p0004b_async_deep.md) | When A waits and B runs, is A delayed? Depends: is B *waiting* or *working*? |
 | 4c | from generator to real async (the mapping) | [`p0004c_generator_to_async.py`](p0004c_generator_to_async.py) | _(code comments)_ | Same `brew` shown 3 ways: `yield`+`next()` = `await`+`.send()` = the event loop |
-| 5 | Comprehensions, iterators, generators | _next_ | _next_ | Lazy sequences — the machinery behind LLM token streaming |
-| 6 | Decorators | _planned_ | _planned_ | Functions that wrap functions — how `@tool` and `@app.post` really work |
+| 5 | Iterators, generators, comprehensions | [`p0005_iterators_generators.py`](p0005_iterators_generators.py) | [`docs/p0005_iterators_generators.md`](docs/p0005_iterators_generators.md) | `for` = iter+next+StopIteration → generators → lazy → LLM streaming |
+| 6 | Decorators | _next_ | _next_ | Functions that wrap functions — how `@tool` and `@app.post` really work |
 
 ## Environment
 
