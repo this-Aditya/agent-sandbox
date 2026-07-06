@@ -64,13 +64,15 @@ def _show_request(request: httpx.Request) -> None:
     print("  --- THE ACTUAL HTTP REQUEST YOUR CODE JUST SENT ---")
     print(f"  {request.method} {request.url}")
     print("  a few headers (your token rides in 'authorization' — we redact it):")
+    # The SDK adds ~10 headers; show only these four so the output stays clean.
+    interesting = ("authorization", "content-type", "host", "accept")
     for name, value in request.headers.items():
         lname = name.lower()
-        if lname == "authorization" or "key" in lname or "token" in lname:
+        if lname not in interesting:
+            continue                        # step 1: which headers to show at all
+        if lname == "authorization":        # step 2: hide the value of the secret one
             value = "<redacted — this is your secret token>"
-        # keep the noise down: show only the headers that matter for the lesson
-        if lname in ("authorization", "content-type", "host", "accept"):
-            print(f"      {name}: {value}")
+        print(f"      {name}: {value}")
     print("  body (THIS JSON is your prompt — the messages list — serialized):")
     body = json.loads(request.content)
     for line in json.dumps(body, indent=2).splitlines():
