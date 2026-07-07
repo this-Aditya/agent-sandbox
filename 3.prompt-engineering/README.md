@@ -42,12 +42,11 @@ then the payoff build.
 | 1 | What a prompt really is | [`p0001_prompt.py`](p0001_prompt.py) | [`docs/p0001_prompt.md`](docs/p0001_prompt.md) | A prompt is a **list of role-tagged messages** serialized to JSON — not a string. The model is stateless; "memory" is you re-sending the list. |
 | 2 | Tokens | [`p0002_tokens.py`](p0002_tokens.py) | [`docs/p0002_tokens.md`](docs/p0002_tokens.md) | The model reads **tokens** (integers), not letters — and you pay per token. Byte-pair encoding, the ~4-chars rule, and why a chat's cost climbs every turn. |
 | 3 | Role & instructions (system prompt) | [`p0003_system_prompt.py`](p0003_system_prompt.py) | [`docs/p0003_system_prompt.md`](docs/p0003_system_prompt.md) | Same question + different `system` message → different answer. The honest truth about system-vs-user, guardrails, persistence, and weak-vs-strong prompts. |
-| 4 | Delimiters & structure | _next_ | | Separate **instructions** from **data**. Why XML tags suit Claude, markdown suits GPT. |
-| 5 | Few-shot examples | _planned_ | | Show, don't tell — 2–3 examples lock the output format. |
-| 6 | Chain-of-thought | _planned_ | | Ask it to reason **before** answering → it gets hard questions right. |
-| 7 | Temperature | _planned_ | | Same prompt ×5: temp 0 = identical, temp 1 = varied. When to use which. |
-| 8 | Structured output → Pydantic | _planned_ | | Force JSON that fits a schema; parse straight into typed Python objects. |
-| 9 | Build: the prompt-lab CLI | _planned_ | | Assemble it all: `--classify`, `--extract`, `--reason`. The phase deliverable. |
+| 4 | Structure & examples (delimiters + few-shot) | [`p0004_structure_examples.py`](p0004_structure_examples.py) | [`docs/p0004_structure_examples.md`](docs/p0004_structure_examples.md) | Mark your **data** so the model can't mistake it for **instructions** (XML tags / markdown), then **show** the task with examples. Few-shot = pattern-completion. |
+| 5 | Reliable answers (chain-of-thought + temperature) | _next_ | | Ask it to **reason before answering** for hard questions, and control randomness with **temperature** (0 for extraction, higher for creativity). |
+| 6 | Typed output → Pydantic + the prompt-lab CLI | _planned_ | | Force JSON that fits a schema, parse into typed objects, and ship the build: `--classify`, `--extract`, `--reason`. |
+
+> Lessons 4–6 each merge two originally-planned topics — denser, not padded.
 
 ## Environment
 
