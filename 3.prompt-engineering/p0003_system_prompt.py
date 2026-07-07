@@ -60,7 +60,8 @@ def build_client() -> OpenAI:
 
 def ask(client: OpenAI, messages: list, **kw) -> str:
     # temperature=0 so re-runs are stable and the ONLY thing changing is the prompt.
-    kw.setdefault("temperature", 0)
+    if "temperature" not in kw:
+        kw.setdefault("temperature", 0)
     resp = client.chat.completions.create(model=MODEL, messages=messages, **kw)
     return resp.choices[0].message.content
 
