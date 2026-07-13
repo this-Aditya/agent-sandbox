@@ -1,14 +1,23 @@
 from dotenv import load_dotenv
+import os
 
 load_dotenv()
 
+from langchain.chat_models import init_chat_model
 from langchain.tools import tool
+
+model = init_chat_model(
+    model="arc:lite",
+    model_provider="openai",
+    base_url=os.getenv("RADAR_OPEN_MODEL_BASE_URL"),
+    api_key=os.getenv("RADAR_OPEN_MODEL_API_KEY"),
+)
 from typing import Dict, Any
 from tavily import TavilyClient
 
 tavily_client = TavilyClient()
 
-@tool
+@tool(name_or_callable="search_anything", description="Search the web for information")
 def web_search(query: str) -> Dict[str, Any]:
 
     """Search the web for information"""
@@ -28,7 +37,7 @@ Return recipe suggestions and eventually the recipe instructions to the user, if
 from langchain.agents import create_agent
 
 agent = create_agent(
-    model="gpt-5-nano",
+    model=model,
     tools=[web_search],
     system_prompt=system_prompt
 )
